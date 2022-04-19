@@ -1,5 +1,6 @@
 class ProjectsController < ApplicationController
   before_action :set_project, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!, only: [:new, :edit, :destroy]
 
   # GET /projects or /projects.json
   def index
@@ -12,6 +13,7 @@ class ProjectsController < ApplicationController
 
   # GET /projects/new
   def new
+    #Devise user authentication helpers
     @project = Project.new
   end
 
