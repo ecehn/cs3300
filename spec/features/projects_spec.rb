@@ -23,8 +23,6 @@ RSpec.feature "Projects", type: :feature do
   context "Update project" do
     let(:project) { Project.create(title: "Test title", description: "Test content") }
     before(:each) do
-      sign_in users(:regular)
-      visit root_path
     end
 
     scenario "should be successful" do
@@ -47,8 +45,6 @@ RSpec.feature "Projects", type: :feature do
   context "Remove existing project" do
     let!(:project) { Project.create(title: "Test title", description: "Test content") }
     scenario "remove project" do
-      sign_in user
-      get root_path
       click_link "Destroy"
       expect(page).to have_content("Project was successfully destroyed")
       expect(Project.count).to eq(0)
