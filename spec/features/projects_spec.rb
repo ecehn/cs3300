@@ -2,8 +2,10 @@ require 'rails_helper'
 
 RSpec.feature "Projects", type: :feature do
 
-  sign_in
-  
+  context "Sign in" do
+    sign_in
+  end
+
   context "Create new project" do
     before(:each) do
       visit new_project_path
