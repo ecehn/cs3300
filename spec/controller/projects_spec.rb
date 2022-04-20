@@ -1,6 +1,14 @@
 require "rails_helper"
 
+#sign_in @user
+#sign_in @user, scope: :admin
+
 RSpec.describe ProjectsController, type: :controller do
+
+  setup do 
+    sign_in @user
+  end
+  
   context "GET #index" do
     it "returns a success response" do
       get :index
@@ -16,4 +24,6 @@ RSpec.describe ProjectsController, type: :controller do
       expect(response).to be_success
     end
   end
+
+   
 end

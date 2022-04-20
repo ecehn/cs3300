@@ -1,6 +1,5 @@
 require 'rails_helper'
 
-require 'rails_helper'
 
 RSpec.feature "Projects", type: :feature do
   context "Create new project" do
