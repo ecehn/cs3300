@@ -43,7 +43,8 @@ RSpec.configure do |config|
   #Devise helpers
   config.include Devise::Test::ControllerHelpers, :type => :controller
   config.include FactoryBot::Syntax::Methods
-  config.extend ControllerMacros, :type => :controller
+  config.include Devise::Test::IntegrationHelpers, type: :feature
+  config.extend IntegrationMacros, :type => :feature
 
   config.include Warden::Test::Helpers
 
