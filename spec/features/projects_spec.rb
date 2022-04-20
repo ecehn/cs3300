@@ -1,5 +1,8 @@
 require 'rails_helper'
 
+setup do
+  sign_in users(:regular)
+end
 
 RSpec.feature "Projects", type: :feature do
   context "Create new project" do

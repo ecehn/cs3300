@@ -5,10 +5,6 @@ require "rails_helper"
 
 RSpec.describe ProjectsController, type: :controller do
 
-  setup do 
-    sign_in @user
-  end
-  
   context "GET #index" do
     it "returns a success response" do
       get :index
