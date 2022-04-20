@@ -5,8 +5,8 @@ RSpec.feature "Projects", type: :feature do
 
 
   context "Create new project" do
-    test_sign_in
     before(:each) do
+      test_sign_in
       visit new_project_path
       within("form") do
         fill_in "Title", with: "Test title"
