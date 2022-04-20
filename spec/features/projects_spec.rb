@@ -2,9 +2,9 @@ require 'rails_helper'
 
 RSpec.feature "Projects", type: :feature do
 
-  context "Sign in" do
-    sign_in
-  end
+  #context "Sign in" do
+   # sign_in
+  #end
 
   context "Create new project" do
     before(:each) do
