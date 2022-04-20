@@ -1,13 +1,6 @@
 require 'rails_helper'
 
 RSpec.feature "Projects", type: :feature do
-
-  
-  context "Login User" do
-    sign_in users(:regular)
-    visit root_path
-  end
-
   context "Create new project" do
     before(:each) do
       within("form") do
