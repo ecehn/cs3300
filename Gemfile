@@ -27,6 +27,11 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'devise'
 
+gem 'bootstrap', '~> 4.1.3'
+gem 'jquery-rails'
+#gem 'sassc', '<= 2.4'
+#gem 'sassc-rails', '<= 2.1.2'
+
 #Rspec
 gem 'mini_racer'
 
