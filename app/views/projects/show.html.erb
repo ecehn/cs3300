@@ -8,7 +8,7 @@
 
       <div class="collapse navbar-collapse" id="navbarsExampleDefault">
       <nav class="nav nav-masthead justify-content-center float-md-end">
-      <%= link_to 'New Project', new_project_path, :class => "nav-link" %>
+        <%= link_to 'New Project', new_project_path, :class => "nav-link" %>
         <%= link_to "Home", projects_path, :class => 'nav-link active'%>
         <% if user_signed_in? %>
         <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'nav-link'  %>
@@ -30,7 +30,6 @@
       <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
         <%= link_to 'Edit', edit_project_path(@project), :class => "btn btn-primary btn-lg px-4 gap-3" %>
         <%= link_to 'Back', projects_path, :class => "btn btn-outline-secondary btn-lg px-4" %>
-        <%= link_to 'Destroy', @project, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-primary btn-lg px-4 gap-3" %>
       </div>
     </div>
   </div>
