@@ -1,5 +1,56 @@
 <p id="notice"><%= notice %></p>
 
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+      <a class="navbar-brand" href="#">Portfolio</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+      <nav class="nav nav-masthead justify-content-center float-md-end">
+        <%= link_to "Home", projects_path, :class => 'nav-link active'%>
+        <% if user_signed_in? %>
+        <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'nav-link'  %>
+        <% else %>
+        <%= link_to "Sign up", new_user_registration_path, :class => 'nav-link'  %> |
+        <%= link_to "Login", new_user_session_path, :class => 'nav-link'  %>
+        <% end %>
+      </nav>
+      </div>
+    </nav>
+
+
+    <main role="main">
+
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron">
+      <div class="container">
+        <h1 class="display-3">Welcome!</h1>
+        <p>This is a display page for projects</p>
+        <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more »</a></p>
+      </div>
+    </div>
+
+    <div class="container">
+      <!-- Example row of columns -->
+      <div class="row">
+
+      <% @projects.each do |project| %>
+        <div class="col-md-4">
+          <h2><%= project.title %></h2>
+          <p><%= project.description %></p>
+          <p><%= link_to "View Details", project, :class => 'btn btn-secondary', :role => "button"  %></p>
+          <!-- <p><a class="btn btn-secondary" href="#" role="button">View details »</a></p> -->
+        </div>
+        <% end %>
+      <hr>
+    </div> <!-- /container -->
+  </main>
+
+  <footer class="container">
+  <p>© Company 2017-2018</p>
+</footer>
+
 
 <p class="navbar-text float-right">
 <% if user_signed_in? %>
@@ -39,3 +90,4 @@
 <br>
 
 <%= link_to 'New Project', new_project_path %>
+

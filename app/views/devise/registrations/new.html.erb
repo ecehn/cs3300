@@ -1,0 +1,93 @@
+<h2>Sign up</h2>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+      <a class="navbar-brand" href="#">Portfolio</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+      <nav class="nav nav-masthead justify-content-center float-md-end">
+        <%= link_to "Home", projects_path, :class => 'nav-link active'%>
+        <% if user_signed_in? %>
+        <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'nav-link'  %>
+        <% else %>
+        <%= link_to "Sign up", new_user_registration_path, :class => 'nav-link'  %> |
+        <%= link_to "Login", new_user_session_path, :class => 'nav-link'  %>
+        <% end %>
+      </nav>
+      </div>
+    </nav>
+
+  
+    <main role="main">
+    <div class="modal modal-signin position-static d-block bg-secondary py-5" tabindex="-1" role="dialog" id="modalSignin">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content rounded-5 shadow">
+      <div class="modal-header p-5 pb-4 border-bottom-0">
+        <h2 class="fw-bold mb-0">Sign up</h2>
+      </div>
+
+      <div class="modal-body p-5 pt-0">
+        <form class="">
+          <div class="form-floating mb-3">
+
+            <%= f.label :email %><br />
+            <%= f.email_field :email, :class => "form-control rounded-4", :id => "floatingInput", :placeholder => "name@example.com", autofocus: true, autocomplete: "email" %>
+          </div>
+
+          <div class="form-floating mb-3">
+
+            <%= f.label :password %>
+            <% if @minimum_password_length %>
+            <em>(<%= @minimum_password_length %> characters minimum)</em>
+            <% end %><br />
+            <%= f.password_field :password, :class => "form-control rounded-4", :id => "floatingPassword", :placeholder => "Password", autocomplete: "new-password" %>
+          </div>
+
+          <div class="form-floating mb-3">
+
+            <%= f.label :password_confirmation %><br />
+            <%= f.password_field :password_confirmation, :class => "form-control rounded-4", :id => "floatingPassword", :placeholder => "Password", autocomplete: "new-password" %>
+          </div>
+
+          <button class="w-100 mb-2 btn btn-lg rounded-4 btn-primary" type="submit">Sign up</button>
+          <small class="text-muted">Already have an account? <%= link_to "Login here", new_user_session_path, :class => 'actions'  %></small>
+          
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+  
+  </main>
+
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password %>
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "new-password" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Sign up" %>
+  </div>
+<% end %>
+
+<%= render "devise/shared/links" %>
