@@ -28,7 +28,9 @@
     <div class="col-lg-6 mx-auto">
       <p class="lead mb-4"><%= @project.description %></p>
       <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+      <% if user_signed_in? %>
         <%= link_to 'Edit', edit_project_path(@project), :class => "btn btn-primary btn-lg px-4 gap-3" %>
+      <% end %>
         <%= link_to 'Back', projects_path, :class => "btn btn-outline-secondary btn-lg px-4" %>
       </div>
     </div>
@@ -36,6 +38,8 @@
     </div> <!-- /container -->
   </main>
 
+
+<!--
 <p>
   <strong>Title:</strong>
   <%= @project.title %>
@@ -48,3 +52,4 @@
 
 <%= link_to 'Edit', edit_project_path(@project) %> |
 <%= link_to 'Back', projects_path %>
+-->
