@@ -57,7 +57,7 @@ RSpec.feature "Projects", type: :feature do
       user = FactoryBot.create(:user)
       sign_in user
       visit projects_path
-      click_link "Destroy"
+      click_button "Destroy"
       expect(page).to have_content("Project was successfully destroyed")
       expect(Project.count).to eq(0)
     end
