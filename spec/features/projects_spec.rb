@@ -1,9 +1,6 @@
 require 'rails_helper'
 
 RSpec.feature "Projects", type: :feature do
-
-
-
   context "Create new project" do
     before(:each) do
       user = FactoryBot.create(:user)
